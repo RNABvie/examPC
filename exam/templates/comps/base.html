@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="{% static 'css/my.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/profile_av/favicon (1).ico' %}" type="image/x-icon">
+    <title>{% block title %}Home Page{% endblock title %}</title>
+</head>
+<body>
+{% include 'comps/navbar.html' %}
+  <main>
+      {% block main %}content{% endblock main %}
+  </main>
+{% include 'comps/footer.html' %}
+</body>
+</html>

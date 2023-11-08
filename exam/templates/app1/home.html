@@ -1,0 +1,30 @@
+{% extends "comps/base.html" %}
+{% load static %}
+
+{% load filters_and_tags %}
+
+{% block title %}Introduction{% endblock title %}
+{% block main %}
+
+
+<div class="mb-2 my_ctn">
+    <table class="mytbl">
+        <tr><th colspan="6">Site's Features:</th></tr>
+        <tr>
+            <th>Blog-</th>
+            <td>-Post List</td>
+            <td>-Post Detail</td>
+            <td>-Post Adding</td>
+            <td>-Post Commenting</td>
+            <td>-Post Editing</td>
+        </tr>
+        <tr>
+            <th>Auth-- </th>
+            <td colspan="2">-Sign in</td>
+            <td colspan="2">-Sign up</td>
+            <td>-Sign out</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock main %}

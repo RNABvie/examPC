@@ -1,0 +1,14 @@
+.venv
+/venv
+
+.idea
+/idea
+
+env/
+venv/
+.idea/
+
+.use in future
+/use in future
+.theory.txt
+/theory.txt

@@ -1,0 +1,284 @@
+body {
+
+    width: 90%;
+    margin: auto;
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+    font-family: sans-serif;
+
+}
+
+*::-webkit-scrollbar {
+    height: 8px;
+    width: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: white;
+  }
+
+  *::-webkit-scrollbar-track:hover {
+    background-color: grey;
+  }
+
+  *::-webkit-scrollbar-track:active {
+    background-color: white;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: #0072ff;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #0072ff;
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #0072ff;
+  }
+
+
+.my-flx {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.my_ctn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+
+}
+
+.mytbl, th ,td{
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 20px;
+    margin: 80px;
+    font-variant-caps: all-petite-caps;
+    text-align: center;
+    font-size: 22px;
+}
+
+.coolDescr {
+    text-wrap: balance;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.mypd {
+    padding-top: 35px;
+}
+
+.form-group {
+    margin:20px;
+}
+
+.contact-form{
+    background: #fff;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    width: 75%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+    border-color: lightblue;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 8%;
+    margin-top: -2%;
+    transform: rotate(29deg);
+}
+
+.myline2 {
+    width: 100%;
+    height: 10px;
+    background: -webkit-linear-gradient(left, #3891ff, #00a7d8);
+}
+.myline {
+    background-color: blue;
+    width: 100%;
+    height: 2px;
+}
+
+.text-body-secondary {
+    --bs-text-opacity: 1;
+    color: rgb(0 81 163)!important;
+}
+
+.contact-image .ava{
+    margin-top: -2%;
+    transform: rotate(0deg);
+    width: 50px;
+}
+
+.contact-image .avaComm{
+    transform: rotate(0deg);
+    width: 30px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 0;
+}
+.mybsline {
+    vertical-align: -webkit-baseline-middle;
+
+}
+
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form form{
+    padding: 13%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 17px;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+
+.row>* {
+    flex-shrink: 1;
+}
+
+.contact-form .btnContact{
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #0091ff;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.errorForm {
+    line-height: 230%;
+    color: red;
+    font-size:17px;
+    text-align: center;
+    width:270px;
+    margin: auto;
+    height:40px;
+    background-image: radial-gradient(white, #00c6ff);
+    border: 2px solid red;
+    border-radius: 25px;
+}
+
+
+.roundedmy {
+    border-radius: var(--bs-border-radius);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+
+}
+
+.btnComm {
+    border-color: #00c6ff;
+    border: 0;
+    border-bottom-right-radius: 12px;
+    border-top-right-radius:12px;
+    width: 47px;
+    background-image: radial-gradient(circle, #0072ff, #00c6ff);
+}
+
+.inpComm{
+    border-radius: 0;
+    border-bottom-left-radius: 12px;
+    border-top-left-radius:12px;
+    border-color: #00c6ff;
+}
+
+.frmComm {
+    background-color:white;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+}
+
+.myComm {
+    width: 96%;
+    margin: auto;
+    padding-top: 10px;
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+
+.id_content {
+  width: 100%;
+  position: relative;
+  margin-right: 0;
+}
+
+
+#sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background-color: white;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.mymn {
+    letter-spacing: 13px;
+}
+
+.nav-link {
+    color: #000c52;
+}
+
+.prff {
+    color: #000c52;
+}
+
+.page-link {
+    padding: 8px;
+    font-size: 19px;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+.myBrd:hover {
+    border-bottom: 1px solid #000c52;
+    color: blue;
+    transition: 0.5s;
+    text-shadow: 0 0 2px #000c52;
+}
+
+
+.my_ft {
+    color: black;
+    border-top: 1px solid;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}

@@ -1,0 +1,38 @@
+{% extends "comps/base.html" %}
+{% load static %}
+
+{% load filters_and_tags %}
+
+{% block title %}Posts Feed{% endblock title %}
+{% block main %}
+<div class="mb-2 my_ctn mypd">
+{% for post in current_page %}
+
+
+    <div class="col-md-6">
+      <div style="background-color: whitesmoke;" class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <div class="contact-image">
+            <img src="{{ post.author.profile.avatar.url }}" alt="ava" width="50" height="50" class="rounded-circle ava" />
+          </div>
+
+          <strong style="text-align:center;letter-spacing:3px;" class="d-inline-block mb-2 text-primary-emphasis">{% my_capitalize post.author %}</strong>
+          <div style="text-align:center;" class="mb-1 text-body-secondary">{{ post.date_time|date:"D d M Y" }} at {{ post.date_time|time:"H\h i\m" }}</div>
+
+          <h3 class="mb-2">{{ post.title }}</h3>
+
+          <div style="text-indent:40px;text-align:justify;" class="card-text mb-auto"><pre class="coolDescr">{{ post.description|truncatewords:35 }}</pre></div>
+          <a href="{{ post.id }}" class="icon-link gap-1 icon-link-hover">Continue reading </a>
+
+        </div>
+        {% if post.image %}
+          <img  src="{{ post.image.url }}" class="" alt="Responsive image">
+        {% endif %}
+      </div>
+    </div>
+
+
+{% endfor %}
+  <div class="col-md-6">{% include "comps/paginator.html" %}</div>
+</div>
+{% endblock main %}

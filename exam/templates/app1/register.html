@@ -1,0 +1,57 @@
+{% extends "comps/base.html" %}
+{% load static %}
+
+{% load filters_and_tags %}
+
+{% block title %}Sign up{% endblock title %}
+{% block main %}
+
+<div class="mb-2 my_ctn">
+<div class="container contact-form" style="border-radius: 35px;">
+            <div class="contact-image">
+                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+            </div>
+            <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <h3>Create Account</h3>
+                {% if error %}
+                    <div style="" class="errorForm">{{ error }}</div>
+                {% endif %}
+                <div class="row">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="title" class="form-label">Set Your Username *</label>
+                            {% if errorName %}
+                                <input type="text" name="usernameF" id="title" class="form-control" style="border:2px solid red;" placeholder="{{errorName}}" value="" required />
+                            {% else %}
+                                <input type="text" name="usernameF" id="title" class="form-control" placeholder="username" value="" required />
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="DefauFile" class="form-label">Set Your Password * <small> (minimum 8 symbols)</small></label>
+                            {% if errorPwd %}
+                                <input type="password" placeholder="{{errorPwd}}" name="passwordF" id="DefauFile" class="form-control" style="border:2px solid red;" required/>
+                            {% else %}
+                                <input type="password" name="passwordF" placeholder="password" id="DefauFile" class="form-control"  required/>
+                            {% endif %}
+
+              <pre> use: (0-9),(A-Z a-z),( <b>@, #, $, %, ^, &, +, =, !, or .</b>)</pre>
+                        </div>
+                        <div class="form-group">
+                            <label for="efaultFile" class="form-label">Your avatar (optional)</label>
+                            <input type="file" accept=".jpg, .png" name="avatarF" id="efaultFile" class="form-control"  value=""/>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group" align="center">
+                        <button type="submit" name="createF" class="btnContact btnContactSubmit">Sign up</button>
+                    </div>
+
+                </div>
+            </form>
+</div>
+</div>
+
+{% endblock main %}

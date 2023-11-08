@@ -1,0 +1,43 @@
+{% extends "comps/base.html" %}
+{% load static %}
+
+{% block title %}Publish Your Post{% endblock title %}
+{% block main %}
+<div class="mb-2 my_ctn">
+<div class="container contact-form" style="border-radius: 35px;">
+            <div class="contact-image">
+                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+            </div>
+            <form action="{% url 'post_cr' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+                <h3>Add Post</h3>
+               <div class="row">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="title" class="form-label">Set Your Title *</label>
+                            <input type="text" name="titleF" id="title" class="form-control" placeholder="type.." value="" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="DefaultFile" class="form-label">Add Your Image *</label>
+                            <input type="file" accept=".jpg, .png" name="imageF" id="DefaultFile" class="form-control"  value="" required/>
+                        </div>
+                        <div class="form-group">
+                          <label for="descr" class="form-label">Set Your Description *</label>
+                          <textarea id="descr" name="descrF" class="form-control" placeholder="type.." style="width: 100%;height: 19px;max-height:10000px;" required></textarea>
+                        </div>
+                    </div>
+<!--                    <div class="col-md-6">-->
+<!--                        <div class="form-group">-->
+<!--                          <label for="descr" class="form-label">Set Your Description *</label>-->
+<!--                            <textarea id="descr" name="descrF" class="form-control" placeholder="type.." style="width: 100%; height: 150px;" required></textarea>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <div class="form-group" align="center">
+                        <button type="submit" name="createF" class="btnContact btnContactSubmit">Publish</button>
+                    </div>
+                </div>
+            </form>
+</div>
+</div>
+
+{% endblock main %}

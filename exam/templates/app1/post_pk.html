@@ -1,0 +1,85 @@
+{% extends "comps/base.html" %}
+{% load static %}
+
+{% load filters_and_tags %}
+
+{% block title %}Post by {{ post.author }}{% endblock title %}
+
+{% block main %}
+<div class="mb-2 my_ctn id_content mypd">
+  <div style="margin-bottom:0;" class="col-md-6">
+      <div style="margin-bottom:0!important;" class="row g-0 border roundedmy overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div style="background-color:#fff" class="col p-4 d-flex flex-column position-static">
+          <div class="contact-image">
+            <img src="{{ post.author.profile.avatar.url }}" alt="ava" width="50" height="50" class="rounded-circle ava" />
+          </div>
+          <strong style="text-align:center;letter-spacing:3px;" class="d-inline-block mb-2 text-primary-emphasis">{% my_capitalize post.author %}</strong>
+          <div style="text-align:center;" class="mb-1 text-body-secondary">{{ post.date_time|date:"D d M Y" }} at {{ post.date_time|time:"H\h i\m" }}</div>
+
+          {% if user == post.author %}
+            <h3 class="mb-2">{{ post.title }} <a href="{% url 'post_up' post.id %}"><svg style="float:right;" xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="black" class="bi bi-pencil-square" viewBox="0 0 16 16"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/></svg></a></h3>
+          {% else %}
+            <h3 class="mb-2">{{ post.title }}</h3>
+          {% endif %}
+
+
+<!--          <div class="mb-1 text-body-secondary">{{ post.date_time|date:"D d M Y" }} at {{ post.date_time|time:"H\h i\m" }}</div>-->
+          <div style="text-align:justify;" class="card-text mb-auto"><pre class="coolDescr">{{ post.description}}</pre></div>
+
+
+
+        </div>
+          {% if post.image %}
+            <img  src="{{ post.image.url }}" class="" alt="Responsive image">
+          {% endif %}
+      </div>
+
+      <div class="myline2"></div>
+<!--      <div class="myline"></div>-->
+
+      <form action="{% url 'comment' post.id %}" method="POST" enctype="multipart/form-data" class="frmComm">
+          {% csrf_token %}
+
+          <div class="form-group my-flx">
+              <textarea id="txtC" name="textCm" class="form-control inpComm" placeholder="Your comment.." style="width: 100%;min-height:150px;" required></textarea>
+              <button type="submit" name="sendCm" class="btnContact btnComm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-send-plus" viewBox="0 0 16 16">
+                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372l2.8-7Zm-2.54 1.183L5.93 9.363 1.591 6.602l11.833-4.733Z"/>
+                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
+                  </svg>
+              </button>
+          </div>
+
+          {% for comment in comments %}
+            <div class="col d-flex align-items-start myComm">
+                <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-2">
+                </div>
+                <div style="width:97%;">
+                    <div class="text-body-emphasis h5">
+                        <div class="contact-image">
+                            <img src="{{ comment.author.profile.avatar.url }}" alt="ava" width="30" height="30" class="rounded-circle avaComm" />
+                        </div>
+                        <strong class="mybsline d-inline-block mb-1 text-primary-emphasis">{{ comment.author }}</strong>
+                        <span class="mybsline text-secondary small"><small>{{ comment.date_time|date:"d M Y" }} at {{ post.date_time|time:"H:i" }}</small> </span>
+
+                    </div>
+                    <div style="margin-left: 12px;"><pre class="coolDescr">{{ comment.text }}</pre></div>
+                    <hr class="m-0 p-1"/>
+<!--                    <p class="text-secondary small">{{ comment.date_time|date:"d M Y" }} at {{ post.date_time|time:"H:i" }}</p>-->
+                </div>
+            </div>
+
+            {% empty %}
+            <div style="padding:25px;border-radius:3rem;" class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fs-2 text-body-emphasis">Комментариев нет!</h3>
+                    <p>Вы можете быть первыми!</p>
+                </div>
+            </div>
+            {% endfor %}
+
+
+      </form>
+  </div>
+</div>
+{% endblock main %}
